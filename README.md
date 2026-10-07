@@ -4,6 +4,8 @@
 
 Designed and built by [Iman Rafief](https://github.com/hhhelpstudio).
 
+**[Live demo → kelana-orcin.vercel.app](https://kelana-orcin.vercel.app/)**
+
 ![Kelana landing page](docs/hero.png)
 
 > **Concept project.** The stays are fictional, it runs on testnets, and there are no tokens. Checking in is a free signature, never a transaction.
