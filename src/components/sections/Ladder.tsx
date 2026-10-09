@@ -15,17 +15,24 @@ export function Ladder() {
           </p>
         </div>
 
-        <ol className="relative space-y-10 pl-10">
-          <span aria-hidden className="absolute top-2 bottom-2 left-[0.6rem] border-l-2 border-dashed border-sand-300" />
-          {tiers.map((tier) => (
+        <ol className="space-y-10 pl-10">
+          {tiers.map((tier, i) => (
             <li key={tier.name} className="relative">
-              <span aria-hidden className="absolute top-1.5 -left-10 grid size-5 place-items-center rounded-full bg-sand-50 ring-2 ring-clay-500">
+              {/* Dot centred on the 2.25rem title line; the dashed segment runs from just under this
+                  dot to just above the next one (0.375rem gap each side), and the last tier has none. */}
+              <span aria-hidden className="absolute top-2 -left-10 grid size-5 place-items-center rounded-full bg-sand-50 ring-2 ring-clay-500">
                 <span className="size-1.5 rounded-full bg-clay-600" />
               </span>
+              {i < tiers.length - 1 && (
+                <span
+                  aria-hidden
+                  className="absolute top-[2.125rem] -bottom-[2.625rem] left-[calc(-1.875rem-1px)] border-l-2 border-dashed border-sand-300"
+                />
+              )}
               <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                <h3 className="font-display text-3xl text-ink-900">{tier.name}</h3>
+                <h3 className="font-display text-3xl leading-9 text-ink-900">{tier.name}</h3>
                 <span className="text-sm text-ink-500 italic">“{tier.meaning}”</span>
-                <span className="ml-auto font-mono text-xs text-ink-500 tabular-nums">
+                <span className="basis-full font-mono text-xs text-ink-500 tabular-nums sm:ml-auto sm:basis-auto">
                   {String(tier.stamps).padStart(2, "0")} / {PASSPORT_SLOTS} STAMPS
                 </span>
               </div>
